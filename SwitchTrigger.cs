@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SwitchTrigger : MonoBehaviour
 {
-    public bool withinrange;
+    private bool withinrange;
     private doorScript Bigdoor;
 
     private void update()

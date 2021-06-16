@@ -10,4 +10,10 @@ public void StartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+    public void QuitApplication()
+    {
+        Debug.Log("You have Quit the Game");
+        Application.Quit();
+    }
 }
+

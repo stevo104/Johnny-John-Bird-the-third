@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class MenuScript : MonoBehaviour
 
 {
-public void StartGame()
+    public void StartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
@@ -14,6 +14,14 @@ public void StartGame()
     {
         Debug.Log("You have Quit the Game");
         Application.Quit();
+    }
+    public void Level1()
+    {
+        SceneManager.LoadScene(1);
+    }
+    public void Level2()
+    {
+        SceneManager.LoadScene(2);
     }
 }
 

@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class MenuScript : MonoBehaviour
+
+    public AudioMixer mixer;
 
 {
     public void StartGame()
@@ -23,5 +26,9 @@ public class MenuScript : MonoBehaviour
     {
         SceneManager.LoadScene(2);
     }
-}
 
+    public void SetLevel(float sliderPoint)
+    {
+        mixer.SetFloat("OceanFX", Mathf.Log10(sliderValue) * 20);
+    }
+}

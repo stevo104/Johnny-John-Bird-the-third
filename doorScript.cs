@@ -15,6 +15,14 @@ public class doorScript : MonoBehaviour
     {
         closepos = BigDoor.transform.localPosition;
     }
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            CloseDoor();
+        }
+
+    }
     public void DoorOpen()
     {
         BigDoor.transform.DOLocalMoveX(closepos.x + openSpace, 1);

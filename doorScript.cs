@@ -7,48 +7,35 @@ public class doorScript : MonoBehaviour
 {
     // Using 3 Different Variables for this section, The float for opening distance, Gameobject to open link the door & Vector 3 to store the transformation.
     public float openSpace;
-    public GameObject BigDoor;
-    public bool OPEN;
-    private bool inRange;
-    public GameObject latch;
-   
-    public float time
-;
+    public float time;
+    public GameObject Switch;
+    public GameObject bigDoor;
+
+    
     private Vector3 closepos;
+   
 
     void Start()
     {
-        closepos = BigDoor.transform.localPosition;
+        closepos = bigDoor.transform.localPosition;
     }
     private void Update()
-    {
-        if (inRange && BigDoor != null & Input.GetKeyDown(KeyCode.F))
+    { 
+    if (Input.GetKeyDown(KeyCode.F))
         {
-            DoorOpen();
-        }
-        if (inRange && BigDoor == null & Input.GetKeyDown(KeyCode.F))
-        {
-            DoorClose();
+       DoorClose();
         }
     }
-    private void OnTriggerEnter(Collider other)
-    {
-       if (BigDoor != null)
-        {
-            inRange = true;
-        }
-       if (BigDoor == null)
-        {
-            inRange = false;
-        }
-    }
+
+
     public void DoorOpen()
     {
-        BigDoor.transform.DOLocalMoveX(closepos.x + openSpace, 1);
+        bigDoor.transform.DOLocalMoveX(closepos.x + openSpace, 1);
     }
+    
     public void DoorClose()
     {
-        BigDoor.transform.DOLocalMoveX(closepos.x - openSpace, 1);
+        bigDoor.transform.DOLocalMoveX(closepos.x, 1);
     }
   
      }

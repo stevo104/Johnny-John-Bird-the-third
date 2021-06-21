@@ -3,37 +3,51 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PersonDoorScript : MonoBehaviour
-{ 
+{
     private bool inRange;
-    private doorScript BigDoor;
+    private doorScript bigDoor;
 
     private void Update()
     {
-        if(inRange && BigDoor != null && Input.GetKeyDown(KeyCode.F))
+        if (inRange && bigDoor != null && Input.GetKeyDown(KeyCode.F))
         {
-            BigDoor.DoorOpen();
+            bigDoor.DoorOpen();
+        }
+
+        if (inRange && bigDoor == null && Input.GetKeyDown(KeyCode.F))
+        {
+            bigDoor.DoorClose();
         }
     }
-
-
     private void OnTriggerEnter(Collider other)
     {
-        BigDoor = other.GetComponent<doorScript>();
-        if (BigDoor != null)
+        bigDoor = other.GetComponent<doorScript>();
+        if (bigDoor != null)
         {
-            inRange = true;
+            inRange = true; if (inRange && bigDoor != null && Input.GetKeyDown(KeyCode.F))
+            {
+                bigDoor.DoorOpen();
+            }
         }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if(other.name.Contains("BigDoor"))
+
+        private void OnTriggerExit(Collider col)
+
+        if (bigDoor == null)
         {
-            inRange = false;
-            BigDoor = null;
+            if (Input.GetKeyDown(KeyCode.F))
+
+            {
+                bigDoor.DoorClose();
+            }
         }
+        }
+
     }
+
+
     
-    
-}
+
+
+
 
 

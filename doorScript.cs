@@ -12,8 +12,6 @@ public class doorScript : MonoBehaviour
     private bool inRange;
     public GameObject latch;
    
-
-
     public float time
 ;
     private Vector3 closepos;
@@ -22,31 +20,27 @@ public class doorScript : MonoBehaviour
     {
         closepos = BigDoor.transform.localPosition;
     }
-    private void OnTriggerEnter(Collider latch)
+    private void Update()
     {
- 
+        if (inRange && BigDoor != null & Input.GetKeyDown(KeyCode.F))
+        {
+            DoorOpen();
+        }
+        if (inRange && BigDoor == null & Input.GetKeyDown(KeyCode.F))
+        {
+            DoorClose();
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
        if (BigDoor != null)
         {
             inRange = true;
         }
-
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            DoorOpen();
-        }
-
        if (BigDoor == null)
         {
             inRange = false;
         }
-
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            DoorClose();
-        }
-
-
-
     }
     public void DoorOpen()
     {

@@ -10,29 +10,28 @@ public class doorScript : MonoBehaviour
     public float time;
     public GameObject Switch;
     public GameObject bigDoor;
+  
 
     
     private Vector3 closepos;
-   
-
     void Start()
     {
+        { 
         closepos = bigDoor.transform.localPosition;
+        }
     }
     private void Update()
     { 
-    if (Input.GetKeyDown(KeyCode.F))
-        {
-       DoorClose();
-        }
+    //if (Input.GetKeyDown(KeyCode.F))
+    //    {
+    //   DoorClose();
+    //    }
     }
-
-
     public void DoorOpen()
     {
         bigDoor.transform.DOLocalMoveX(closepos.x + openSpace, 1);
     }
-    
+ 
     public void DoorClose()
     {
         bigDoor.transform.DOLocalMoveX(closepos.x, 1);

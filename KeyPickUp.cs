@@ -10,13 +10,16 @@ public class KeyPickUp : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Key.SetActive(true);
+        Key.SetActive(false);
     }
     void OnTriggerEnter(Collider other)
     {
-        if(inRange = true); if (inRange && Key!=null && Input.GetKeyDown(KeyCode.F))
+        inRange = true;
         {
-            Destroy(Key);
+            if (inRange && Key != null && Input.GetKeyDown(KeyCode.F))
+            {
+                Destroy(Key);
+            }
         }
     }
 }

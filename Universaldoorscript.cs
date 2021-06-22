@@ -11,6 +11,8 @@ public class Universaldoorscript : MonoBehaviour
     public GameObject Switch;
     public GameObject bigDoor;
     public GameObject uiObject;
+    public AudioClip SoundToPlay;
+    AudioSource soundSource;
     private Vector3 closepos;
   
  // at the start, the script will have the UI pop up set to "off" and the "Big door" will be closed.
@@ -20,9 +22,11 @@ public class Universaldoorscript : MonoBehaviour
         closepos = bigDoor.transform.localPosition;
     }
     public void DoorOpen()
- // This is the function that causes the door to move along the "X Axis", will only happen when called upon however. 
+ // This is the function that causes the door to move along the "X Axis", will only happen when called upon however. It Also has the sound file connected so when the door opens the sound will play too.
     {
         bigDoor.transform.DOLocalMoveX(closepos.x + openSpace, 1);
+        soundSource = gameObject.GetComponent<AudioSource>();
+        soundSource.PlayOneShot(SoundToPlay);
     }
     void OnTriggerEnter(Collider player)
  // When the player enters the trigger it will check for the tag, if successful it will display the UI Object on Screen and trigger the countdown to begin.

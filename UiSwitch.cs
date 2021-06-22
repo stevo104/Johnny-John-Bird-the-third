@@ -25,7 +25,7 @@ public class UiSwitch : MonoBehaviour
 
     private IEnumerator WaitSec()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
         Destroy(uiObject);
         Destroy(gameObject);
 

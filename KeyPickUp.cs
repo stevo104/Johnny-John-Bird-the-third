@@ -10,7 +10,7 @@ public class KeyPickUp : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Key.SetActive(false);
+        Key.SetActive(true);
     }
     void OnTriggerEnter(Collider other)
     {

@@ -19,15 +19,15 @@ public class UiSwitch : MonoBehaviour
         if (player.gameObject.tag == "Johnny")
         {
             uiObject.SetActive(true);
-            StartCoroutine("WaitForSec");
+            StartCoroutine("WaitSec");
         }
-        //Once player has left the collider the UI object will be destroyed
-        IEnumerator WaitForSec()
-        {
-            yield return new WaitForSeconds(5);
-            Destroy(uiObject);
-            Destroy(gameObject);
+    }
 
-        }
+    private IEnumerator WaitSec()
+    {
+        yield return new WaitForSeconds(5);
+        Destroy(uiObject);
+        Destroy(gameObject);
+
     }
 }
